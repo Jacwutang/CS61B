@@ -1,0 +1,1 @@
+Project 0 - Simulation of planetary motion of N objects in a plane, accounting for gravitational forces mutually affecting each object as demonstrated by Sir Issac Newton's Law of Universal Gravitation.

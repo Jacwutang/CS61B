@@ -7,6 +7,12 @@ public class Planet {
     double mass;
     String imgFileName;
 
+
+    public static void main(String[] args) {
+
+    }
+
+
     public Planet(double xP, double yP, double xV, double yV, double m, String img) {
 
     xxPos = xP;
@@ -21,16 +27,115 @@ public class Planet {
 
     public Planet(Planet p){
 
-        xxPos = p.xxPos;
-        yyPos = p.yyPos;
-        xxVel = p.xxVel;
-        yyVel = p.yyVel;
-        mass = p.mass;
-        imgFileName = p.imgFileName;
+
+
+        this.xxPos = p.xxPos;
+        this.yyPos = p.yyPos;
+        this.xxVel = p.xxVel;
+        this.yyVel = p.yyVel;
+        this.mass = p.mass;
+        this.imgFileName = p.imgFileName;
 
     }
 
 
+    public double calcDistance(Planet p){
 
+        double dX = Math.abs(this.xxPos - p.xxPos);
+        double dY = Math.abs(this.yyPos - p.yyPos);
+
+
+        double distance = Math.sqrt( (dX*dX) + (dY*dY) );
+
+        return distance;
+
+    }
+
+
+    public double calcForceExertedBy(Planet p){
+
+        double G = 6.67 * Math.pow(10,-11);
+
+
+        double Force = (G * this.mass * p.mass) / (calcDistance(p) * calcDistance(p));
+
+
+
+        return Force;
+
+    }
+
+    public double calcForceExertedByX(Planet p){
+
+        double dX = Math.abs(this.xxPos - p.xxPos);
+
+        double xForce = (calcForceExertedBy(p) * dX) / calcDistance(p);
+
+        if (this.xxPos < p.xxPos)
+            return xForce;
+
+        else if (this.xxPos == p.xxPos) {
+            xForce = 0.0;
+            return xForce;
+        }
+
+
+            return xForce *= -1;
+    }
+
+
+
+    public double calcForceExertedByY(Planet p){
+
+        double dY = Math.abs(this.yyPos - p.yyPos);
+
+        double yForce = (calcForceExertedBy(p) * dY) / calcDistance(p);
+
+        if (this.yyPos < p.yyPos)
+            return yForce;
+
+
+        else if (this.yyPos == p.yyPos) {
+            yForce = 0.0;
+            return yForce;
+        }
+
+        return yForce *= -1;
+    }
+
+
+    public double calcNetForceExertedByX(Planet [] allPlanets){
+
+        double index = 0;
+
+
+        for(int x = 0; x < allPlanets.length; x++){
+
+            if (this.equals(allPlanets[x])) {
+                index = x;
+
+            }
+        }
+
+
+
+
+
+
+
+        return index;
+
+
+
+
+    }
+
+//    public double calcNetForceExertedByY(Planet p){
+//
+//        double yNetForce = 0;
+//
+//        return yNetForce;
+//
+//    }
 
 }

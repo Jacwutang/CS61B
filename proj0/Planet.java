@@ -104,38 +104,53 @@ public class Planet {
     }
 
 
-    public double calcNetForceExertedByX(Planet [] allPlanets){
+    public double calcNetForceExertedByX(Planet [] allPlanets) {
 
-        double index = 0;
+        double xNetForce = 0;
 
 
-        for(int x = 0; x < allPlanets.length; x++){
+        for (int x = 0; x < allPlanets.length; x++) {
 
-            if (this.equals(allPlanets[x])) {
-                index = x;
+            if (this.equals(allPlanets[x]) == false) {
+
+                xNetForce += this.calcForceExertedByX(allPlanets[x]);
 
             }
+
+
         }
 
-
-
-
-
-
-
-        return index;
-
-
-
-
+        return xNetForce;
     }
 
-//    public double calcNetForceExertedByY(Planet p){
-//
-//        double yNetForce = 0;
-//
-//        return yNetForce;
-//
-//    }
+
+
+
+
+
+
+
+
+
+
+
+    public double calcNetForceExertedByY(Planet [] allPlanets){
+
+        double yNetForce = 0;
+
+        for (int y = 0; y < allPlanets.length; y++) {
+
+            if (this.equals(allPlanets[y]) == false) {
+
+                yNetForce += this.calcForceExertedByY(allPlanets[y]);
+
+            }
+
+
+        }
+
+        return yNetForce;
+
+    }
 
 }

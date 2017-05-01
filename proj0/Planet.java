@@ -145,7 +145,7 @@ public class Planet {
     }
 
 
-    public void update(double dT,double fX,double fY){
+    public void update(double dT,int fX,int fY){
         double aX = fX / this.mass;
         double aY = fY / this.mass;
 

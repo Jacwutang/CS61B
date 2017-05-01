@@ -1,5 +1,20 @@
 public class NBody {
 
+    public static void main(String[] args) {
+        double T = Double.parseDouble(args[0]);
+        double dT = Double.parseDouble(args[1]);
+        String filename = args[2];
+
+        double radius = readRadius(filename);
+
+        Planet[] planets = readPlanets(filename);
+
+    }
+
+
+
+
+
     public static double readRadius(String PlanetsTextFile){
 
         In in = new In(PlanetsTextFile);

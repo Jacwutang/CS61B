@@ -15,6 +15,9 @@ public class TestReadPlanets {
         /* If the following line fails to compile, you probably need to make
          * a certain method static! */
         Planet[] actualOutput = NBody.readPlanets(planetsTxtPath);
+        //String actualOutput = NBody.readPlanets(planetsTxtPath);
+
+
 
         /* Check the simple things: */
         if (actualOutput == null) {

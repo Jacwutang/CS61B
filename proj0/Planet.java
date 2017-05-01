@@ -125,15 +125,6 @@ public class Planet {
 
 
 
-
-
-
-
-
-
-
-
-
     public double calcNetForceExertedByY(Planet [] allPlanets){
 
         double yNetForce = 0;
@@ -153,4 +144,19 @@ public class Planet {
 
     }
 
-}
+
+    public void update(double dT,double fX,double fY){
+        double aX = fX / this.mass;
+        double aY = fY / this.mass;
+
+        this.xxVel = this.xxVel + (dT*aX);
+        this.yyVel = this.yyVel + (dT*aY);
+
+        this.xxPos = (this.xxPos + dT* this.xxVel);
+        this.yyPos = (this.yyPos + dT* this.yyVel);
+
+
+    }
+
+
+} // Planet Class

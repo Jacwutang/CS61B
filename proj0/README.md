@@ -3,6 +3,7 @@ Project 0 - Simulation of planetary motion of N objects in a plane, accounting f
 To run:
 
 javac NBody.java
+
 java NBody 15778800.0 25000.0 data/planets.txt
 
 

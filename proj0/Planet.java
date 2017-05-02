@@ -20,7 +20,7 @@ public class Planet {
     xxVel = xV;
     yyVel = yV;
     mass = m;
-    imgFileName = img;
+    imgFileName = "./images/" + img;
     }
 
 
@@ -145,7 +145,7 @@ public class Planet {
     }
 
 
-    public void update(double dT,int fX,int fY){
+    public void update(double dT, double fX, double fY){
         double aX = fX / this.mass;
         double aY = fY / this.mass;
 
@@ -157,6 +157,19 @@ public class Planet {
 
 
     }
+
+    public void draw(){
+
+
+
+        StdDraw.picture(this.xxPos,this.yyPos,imgFileName);
+        StdDraw.show();
+
+
+    }
+
+
+
 
 
 } // Planet Class
